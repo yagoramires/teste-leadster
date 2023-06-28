@@ -1,14 +1,10 @@
-'use client';
-import Header from '../components/Header/index';
-import { GlobalStyle } from '../styles/globals.js';
-import { Plus_Jakarta_Sans } from 'next/font/google';
+import StyledComponentsRegistry from './registry';
+import { GlobalStyle } from '@/styles/globals';
 
+import { Plus_Jakarta_Sans } from 'next/font/google';
 const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'] });
 
-export const metadata = {
-  title: 'Leadster',
-  description: 'Transformando visitantes em clientes',
-};
+import Header from '@/components/Header/index';
 
 export default function RootLayout({
   children,
@@ -16,12 +12,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='pt-BR'>
-      <body className={jakarta.className}>
+    <html lang='pt-BR' className={jakarta.className}>
+      <StyledComponentsRegistry>
         <GlobalStyle />
         <Header />
         {children}
-      </body>
+      </StyledComponentsRegistry>
     </html>
   );
 }
