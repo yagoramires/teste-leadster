@@ -8,9 +8,20 @@ export const StyleHeader = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2.5rem;
+  padding: 1rem;
+
+  @media (min-width: 1024px) {
+    padding: 2.5rem;
+  }
 `;
 
 export const StyledLink = styled(Link)``;
 
-export const StyledLogo = styled(Image)``;
+export const StyledLogo = styled(Image)`
+  width: 120px;
+  height: auto;
+
+  @media (min-width: 1024px) {
+    width: 194px;
+  }
+`;
