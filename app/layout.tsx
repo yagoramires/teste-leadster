@@ -1,4 +1,5 @@
 'use client';
+import Header from '../components/Header/index';
 import { GlobalStyle } from '../styles/globals.js';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 
@@ -18,6 +19,7 @@ export default function RootLayout({
     <html lang='pt-BR'>
       <body className={jakarta.className}>
         <GlobalStyle />
+        <Header />
         {children}
       </body>
     </html>
