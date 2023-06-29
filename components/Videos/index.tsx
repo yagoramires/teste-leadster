@@ -1,22 +1,25 @@
 'use client';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { VideosContext } from '@/context/VideosContext';
 import VideoCard from '../VideoCard';
 import VideoCategories from '../VideoCategories';
 import { IVideo } from '@/interfaces/IVideos';
 import { StyledCardList, StyledVideosSection } from './styles';
+import VideoPagination from '../VideoPagination';
 
 const Videos = () => {
-  const { videos } = useContext(VideosContext);
+  const { videos, videoCategories, page, setPage, pageNumber } =
+    useContext(VideosContext);
 
   return (
     <StyledVideosSection>
-      <VideoCategories />
+      <VideoCategories categories={videoCategories} />
       <StyledCardList>
-        {videos?.map((video: IVideo) => (
+        {videos[page]?.map((video: IVideo) => (
           <VideoCard key={video.id} video={video} />
         ))}
       </StyledCardList>
+      <VideoPagination />
     </StyledVideosSection>
   );
 };
