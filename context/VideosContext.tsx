@@ -59,7 +59,7 @@ export const VideosProvider = ({ children }: VideoContextProps) => {
 
     if (screenSize.width > 1024) {
       itemsPerPage = 9;
-    } else if (screenSize.width > 1024) {
+    } else if (screenSize.width > 768) {
       itemsPerPage = 6;
     } else {
       itemsPerPage = 3;
@@ -87,7 +87,7 @@ export const VideosProvider = ({ children }: VideoContextProps) => {
 
     if (screenSize.width > 1024) {
       itemsPerPage = 9;
-    } else if (screenSize.width > 1024) {
+    } else if (screenSize.width > 768) {
       itemsPerPage = 6;
     } else {
       itemsPerPage = 3;

@@ -5,5 +5,9 @@ export interface IVideo {
   description: string;
   downloads: Array<string>;
   category: string;
-  createdAt: string;
+  createdAt: {
+    year: number;
+    month: number;
+    day: number;
+  };
 }
