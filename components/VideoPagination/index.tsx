@@ -7,7 +7,11 @@ import {
   StyledText,
 } from './styles';
 
-const VideoPagination = () => {
+interface props {
+  reference: React.RefObject<HTMLUListElement>;
+}
+
+const VideoPagination = ({ reference }: props) => {
   const { page, pageNumber, setPage } = useContext(VideosContext);
 
   const generatePagesArray = (pageNumber: number) => {
@@ -22,6 +26,7 @@ const VideoPagination = () => {
 
   const handleSelectPage = (pageNumber: number) => {
     setPage(pageNumber);
+    reference.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (

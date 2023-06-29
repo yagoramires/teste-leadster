@@ -8,17 +8,25 @@ import {
 
 interface props {
   categories: Array<string>;
+  reference: React.RefObject<HTMLUListElement>;
 }
 
-const VideoCategories = ({ categories }: props) => {
+const VideoCategories = ({ categories, reference }: props) => {
   const { selectedCategory, setSelectedCategory } = useContext(VideosContext);
+
+  const handleSelectCategory = (category: string) => {
+    setSelectedCategory(category);
+    reference.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <StyledCategoriesContainer>
       <StyledCategoriesList>
         <StyledCategoriesListItem
           selected={selectedCategory === 'Todas' ? true : false}
-          onClick={() => setSelectedCategory('Todas')}
+          onClick={() => {
+            handleSelectCategory('Todas');
+          }}
         >
           Todas
         </StyledCategoriesListItem>
@@ -26,7 +34,9 @@ const VideoCategories = ({ categories }: props) => {
           <StyledCategoriesListItem
             key={category}
             selected={selectedCategory === category ? true : false}
-            onClick={() => setSelectedCategory(category)}
+            onClick={() => {
+              handleSelectCategory(category);
+            }}
           >
             {category}
           </StyledCategoriesListItem>

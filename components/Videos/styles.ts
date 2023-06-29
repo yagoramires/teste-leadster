@@ -1,5 +1,6 @@
 'use client';
 import styled from 'styled-components';
+import { forwardRef } from 'react';
 
 export const StyledVideosSection = styled.section`
   padding: 5rem 2rem;
