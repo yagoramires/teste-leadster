@@ -4,6 +4,10 @@ import {
   StyledCategoriesContainer,
   StyledCategoriesList,
   StyledCategoriesListItem,
+  StyledOrder,
+  StyledOrderContainer,
+  StyledOrderLabel,
+  StyledOrderOption,
 } from './styles';
 
 interface props {
@@ -42,6 +46,13 @@ const VideoCategories = ({ categories, reference }: props) => {
           </StyledCategoriesListItem>
         ))}
       </StyledCategoriesList>
+
+      <StyledOrderContainer>
+        <StyledOrderLabel>Ordenar por</StyledOrderLabel>
+        <StyledOrder>
+          <StyledOrderOption>Data de Publicação</StyledOrderOption>
+        </StyledOrder>
+      </StyledOrderContainer>
     </StyledCategoriesContainer>
   );
 };
