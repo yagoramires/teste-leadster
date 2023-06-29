@@ -88,7 +88,7 @@ export const StyledListLink = styled(Link)`
   padding-bottom: 4px;
 
   &:hover {
-    border-bottom: 1px solid ${({ theme }) => theme.colors.gray200};
+    color: ${({ theme }) => theme.colors.bluelink};
   }
 `;
 
