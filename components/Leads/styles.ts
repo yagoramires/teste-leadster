@@ -3,64 +3,85 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 
+export const StyledBackground = styled.div`
+  width: 100%;
+  background: ${({ theme }) => theme.colors.light};
+`;
 export const StyledContainer = styled.div`
   padding: 2rem;
+  margin: 0 auto;
+  max-width: 1200px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 2rem;
-
-  background: ${({ theme }) => theme.colors.light};
-
-  & div {
-    flex: 1;
-  }
 
   @media (min-width: 1024px) {
     gap: 8rem;
+    align-items: center;
     flex-direction: row;
   }
 `;
 
 export const StyledDemoImage = styled(Image)`
+  margin: 0 auto;
   width: 300px;
   height: auto;
   @media (min-width: 1024px) {
     width: 400px;
   }
   @media (min-width: 1440px) {
-    width: 739px;
+    width: 640px;
   }
 `;
+
+export const StyledLeadsTextsContainer = styled.div`
+  width: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: 1024px) {
+    align-items: flex-start;
+  }
+`;
+
 export const StyledBold = styled.b`
   font-weight: 800;
 `;
 
 export const StyledTitle = styled.h3`
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 600;
+
   color: ${({ theme }) => theme.colors.dark};
 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 
-  @media (min-width: 1440px) {
-    font-size: 3rem;
+  @media (min-width: 1024px) {
+    font-size: 2rem;
+    align-items: flex-start;
   }
 `;
 
 export const StyledButtonContainer = styled.div`
+  width: 100%;
   max-width: 700px;
   margin-top: 1.5rem;
+
   border-top: 2px solid ${({ theme }) => theme.colors.gray};
   padding: 1.5rem 0;
-  display: flex;
 
-  justify-content: flex-start;
+  display: flex;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
 `;
@@ -74,22 +95,18 @@ export const StyledText = styled.p`
   @media (min-width: 1024px) {
     font-size: 1rem;
   }
-
-  @media (min-width: 1440px) {
-    font-size: 1.2rem;
-    padding-right: 2rem;
-  }
 `;
 
 export const StyledLink = styled(Link)`
   background: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.white};
-  padding: 1rem 1.8rem;
+  padding: 0.8rem 0.5rem;
   text-decoration: none;
   font-weight: 600;
   border-radius: 2rem;
   transition: all 0.2s;
   font-size: 0.8rem;
+  text-align: center;
 
   &:hover {
     background: ${({ theme }) => theme.colors.secondary};
@@ -101,30 +118,48 @@ export const StyledLink = styled(Link)`
   }
 `;
 
+export const StyledStampImage = styled(Image)`
+  width: 120px;
+  height: auto;
+`;
+
 export const StyledImage = styled(Image)``;
 
 export const StyledDetailsContainer = styled.div`
-  max-width: 700px;
-  margin-top: 1.5rem;
+  margin: 1.5rem auto 0;
   padding: 1.5rem 0;
+
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   gap: 0.5rem;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    font-size: 2rem;
+  }
+
+  & div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    @media (min-width: 1024px) {
+      width: 100%;
+    }
+  }
 `;
 
 export const StyledDetailsText = styled.p`
   color: ${({ theme }) => theme.colors.dark};
   font-weight: 500;
-  /* font-size: 0.8rem;
+  font-size: 0.8rem;
   margin-top: 0.5rem;
 
   @media (min-width: 1024px) {
     font-size: 1rem;
   }
-
-  @media (min-width: 1440px) {
-    font-size: 1.2rem;
-    padding-right: 2rem;
-  } */
 `;

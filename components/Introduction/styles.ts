@@ -33,9 +33,14 @@ export const StyledLabel = styled.p`
   }
 `;
 export const StyledTitleMid = styled.h3`
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 500;
   color: ${({ theme }) => theme.colors.dark};
+  text-align: center;
+
+  @media (min-width: 800px) {
+    font-size: 2rem;
+  }
 
   @media (min-width: 1024px) {
     font-size: 3rem;
@@ -51,8 +56,13 @@ export const StyledTitleHigh = styled.h2`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: black;
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   position: relative;
+  text-align: center;
+
+  @media (min-width: 800px) {
+    font-size: 3rem;
+  }
 
   @media (min-width: 1024px) {
     font-size: 6rem;
@@ -80,10 +90,16 @@ export const StyledBold = styled.b`
 
 export const StyledImage = styled(Image)`
   position: absolute;
-  right: -0.7rem;
-  top: 0.5rem;
-  width: 25px;
+  right: -0.5rem;
+  top: 0.4rem;
+  width: 20px;
   height: auto;
+
+  @media (min-width: 800px) {
+    width: 30px;
+    right: -0.8rem;
+    top: 0.5rem;
+  }
 
   @media (min-width: 1024px) {
     width: 49px;
