@@ -8,6 +8,7 @@ const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'] });
 import Header from '@/components/Header/index';
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from '@/styles/theme';
+import { VideosProvider } from '@/context/VideosContext';
 
 export default function RootLayout({
   children,
@@ -20,9 +21,10 @@ export default function RootLayout({
         <StyledComponentsRegistry>
           <ThemeProvider theme={defaultTheme}>
             <GlobalStyle />
-
-            <Header />
-            {children}
+            <VideosProvider>
+              <Header />
+              {children}
+            </VideosProvider>
           </ThemeProvider>
         </StyledComponentsRegistry>
       </body>
