@@ -21,7 +21,7 @@ interface VideoProps {
 const initialValue = {
   videos: [],
   videoCategories: [],
-  selectedCategory: '',
+  selectedCategory: 'Todas',
   setSelectedCategory: () => {},
   page: 0,
   setPage: () => {},
@@ -67,7 +67,7 @@ export const VideosProvider = ({ children }: VideoContextProps) => {
 
     let paginatedArray;
 
-    if (selectedCategory.length > 0) {
+    if (selectedCategory !== 'Todas') {
       const filterVideosByCategory = db.filter(
         (video) => video.category === selectedCategory,
       );

@@ -16,11 +16,15 @@ const VideoCategories = ({ categories }: props) => {
   return (
     <StyledCategoriesContainer>
       <StyledCategoriesList>
-        <StyledCategoriesListItem onClick={() => setSelectedCategory('')}>
+        <StyledCategoriesListItem
+          selected={selectedCategory === 'Todas' ? true : false}
+          onClick={() => setSelectedCategory('Todas')}
+        >
           Todas
         </StyledCategoriesListItem>
         {categories?.map((category) => (
           <StyledCategoriesListItem
+            selected={selectedCategory === category ? true : false}
             onClick={() => setSelectedCategory(category)}
           >
             {category}

@@ -1,5 +1,9 @@
 'use client';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+interface ListItemProps {
+  selected: boolean;
+}
 
 export const StyledCategoriesContainer = styled.div`
   max-width: 1200px;
@@ -17,18 +21,37 @@ export const StyledCategoriesList = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
+
   gap: 1rem;
+  flex-wrap: wrap;
 `;
-export const StyledCategoriesListItem = styled.li`
-  color: ${({ theme }) => theme.colors.dark};
+export const StyledCategoriesListItem = styled.li<ListItemProps>`
+  ${({ theme, selected }) =>
+    selected
+      ? css`
+          color: ${theme.colors.white};
+          background: ${theme.colors.primary};
+          border: 1px solid ${({ theme }) => theme.colors.primary};
+
+          &:hover {
+            color: ${({ theme }) => theme.colors.white};
+            border: 1px solid ${({ theme }) => theme.colors.bluelink};
+          }
+        `
+      : css`
+          color: ${theme.colors.dark};
+          background: ${theme.colors.white};
+          border: 1px solid ${({ theme }) => theme.colors.dark};
+
+          &:hover {
+            color: ${({ theme }) => theme.colors.bluelink};
+            border: 1px solid ${({ theme }) => theme.colors.bluelink};
+          }
+        `};
+
   text-transform: capitalize;
   padding: 0.5rem 1rem;
-  border: 1px solid ${({ theme }) => theme.colors.dark};
+
   border-radius: 2rem;
   cursor: pointer;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.bluelink};
-    border: 1px solid ${({ theme }) => theme.colors.bluelink};
-  }
 `;

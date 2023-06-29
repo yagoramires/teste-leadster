@@ -1,5 +1,9 @@
 'use client';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+interface SelectedPage {
+  selected: boolean;
+}
 
 export const StyledPaginationContainer = styled.div`
   max-width: 1200px;
@@ -22,7 +26,22 @@ export const StyledPaginationList = styled.ul`
   align-items: center;
   gap: 1rem;
 `;
-export const StyledPaginationListItem = styled.li`
+export const StyledPaginationListItem = styled.li<SelectedPage>`
   cursor: pointer;
   color: ${({ theme }) => theme.colors.dark};
+  border-radius: 6px;
+  padding: 4px 12px;
+  text-align: center;
+
+  ${({ theme, selected }) =>
+    selected
+      ? css`
+          font-weight: 700;
+          color: ${theme.colors.secondary};
+          border: 1px solid ${({ theme }) => theme.colors.secondary};
+        `
+      : css`
+          color: ${theme.colors.dark};
+          border: 1px solid transparent;
+        `};
 `;

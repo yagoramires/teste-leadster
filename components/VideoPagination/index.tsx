@@ -8,7 +8,7 @@ import {
 } from './styles';
 
 const VideoPagination = () => {
-  const { pageNumber, setPage } = useContext(VideosContext);
+  const { page, pageNumber, setPage } = useContext(VideosContext);
 
   const generatePagesArray = (pageNumber: number) => {
     const pages = [];
@@ -31,6 +31,7 @@ const VideoPagination = () => {
         {pageNumber > 0 &&
           generatePagesArray(pageNumber).map((x) => (
             <StyledPaginationListItem
+              selected={page === x ? true : false}
               key={x + 1}
               value={x + 1}
               onClick={() => handleSelectPage(Number(x))}
