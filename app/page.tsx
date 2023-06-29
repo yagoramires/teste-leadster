@@ -1,5 +1,6 @@
 import Introduction from '@/components/Introduction/index';
 import Leads from '@/components/Leads';
+import Footer from '@/components/Footer';
 
 export const metadata = {
   title: 'Leadster',
@@ -8,9 +9,10 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main id='#'>
+    <main>
       <Introduction />
       <Leads />
+      <Footer />
     </main>
   );
 }

@@ -4,7 +4,6 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 export const StyledContainer = styled.div`
-  margin: 10rem 0;
   padding: 2rem;
 
   display: flex;

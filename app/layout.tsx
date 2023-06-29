@@ -15,15 +15,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='pt-BR' className={jakarta.className}>
-      <StyledComponentsRegistry>
-        <ThemeProvider theme={defaultTheme}>
-          <GlobalStyle />
+    <html lang='pt-BR'>
+      <body className={jakarta.className}>
+        <StyledComponentsRegistry>
+          <ThemeProvider theme={defaultTheme}>
+            <GlobalStyle />
 
-          <Header />
-          {children}
-        </ThemeProvider>
-      </StyledComponentsRegistry>
+            <Header />
+            {children}
+          </ThemeProvider>
+        </StyledComponentsRegistry>
+      </body>
     </html>
   );
 }
