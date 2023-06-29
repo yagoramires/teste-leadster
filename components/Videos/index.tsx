@@ -1,5 +1,5 @@
 'use client';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { VideosContext } from '@/context/VideosContext';
 import VideoCard from '../VideoCard';
 import VideoCategories from '../VideoCategories';

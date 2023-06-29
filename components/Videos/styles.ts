@@ -6,6 +6,7 @@ export const StyledVideosSection = styled.section`
 `;
 
 export const StyledCardList = styled.ul`
+  padding: 2rem;
   margin: 0 auto;
   max-width: 1200px;
   display: grid;
@@ -19,6 +20,7 @@ export const StyledCardList = styled.ul`
   }
 
   @media (min-width: 1200px) {
+    padding: 3rem 0;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 0;
   }
