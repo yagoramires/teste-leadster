@@ -19,9 +19,10 @@ export const StyledContainer = styled.div`
   gap: 2rem;
 
   @media (min-width: 1024px) {
-    gap: 8rem;
+    gap: 2rem;
     align-items: center;
     flex-direction: row;
+    padding: 2rem 0;
   }
 `;
 
@@ -30,7 +31,7 @@ export const StyledDemoImage = styled(Image)`
   width: 300px;
   height: auto;
   @media (min-width: 1024px) {
-    width: 400px;
+    width: 500px;
   }
   @media (min-width: 1440px) {
     width: 640px;
@@ -38,6 +39,7 @@ export const StyledDemoImage = styled(Image)`
 `;
 
 export const StyledLeadsTextsContainer = styled.div`
+  flex: 1;
   width: 100%;
   margin: 0 auto;
 
@@ -114,13 +116,17 @@ export const StyledLink = styled(Link)`
 
   @media (min-width: 1024px) {
     font-size: 1rem;
-    padding: 1.3rem 2rem;
+    padding: 1.3rem 1rem;
   }
 `;
 
 export const StyledStampImage = styled(Image)`
   width: 120px;
   height: auto;
+
+  @media (min-width: 1024px) {
+    width: 200px;
+  }
 `;
 
 export const StyledImage = styled(Image)``;
@@ -128,6 +134,7 @@ export const StyledImage = styled(Image)``;
 export const StyledDetailsContainer = styled.div`
   margin: 1.5rem auto 0;
   padding: 1.5rem 0;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -142,10 +149,9 @@ export const StyledDetailsContainer = styled.div`
 
   & div {
     display: flex;
-    justify-content: center;
     align-items: center;
 
-    gap: 8px;
+    gap: 1rem;
 
     @media (min-width: 1024px) {
       width: 100%;
@@ -157,9 +163,9 @@ export const StyledDetailsText = styled.p`
   color: ${({ theme }) => theme.colors.dark};
   font-weight: 500;
   font-size: 0.8rem;
-  margin-top: 0.5rem;
+  line-height: 0.8rem;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1200px) {
     font-size: 1rem;
   }
 `;

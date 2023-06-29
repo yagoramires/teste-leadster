@@ -59,8 +59,8 @@ const Leads = () => {
             <div>
               <StyledImage
                 src='/assets/rating.webp'
-                width={92}
-                height={16}
+                width={70}
+                height={12}
                 alt='rating'
               />
               <StyledDetailsText>
