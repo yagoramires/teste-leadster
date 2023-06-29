@@ -11,14 +11,20 @@ interface props {
 }
 
 const VideoCategories = ({ categories }: props) => {
-  const { pageNumber } = useContext(VideosContext);
+  const { selectedCategory, setSelectedCategory } = useContext(VideosContext);
 
   return (
     <StyledCategoriesContainer>
       <StyledCategoriesList>
-        <StyledCategoriesListItem>Todas</StyledCategoriesListItem>
+        <StyledCategoriesListItem onClick={() => setSelectedCategory('')}>
+          Todas
+        </StyledCategoriesListItem>
         {categories?.map((category) => (
-          <StyledCategoriesListItem>{category}</StyledCategoriesListItem>
+          <StyledCategoriesListItem
+            onClick={() => setSelectedCategory(category)}
+          >
+            {category}
+          </StyledCategoriesListItem>
         ))}
       </StyledCategoriesList>
     </StyledCategoriesContainer>

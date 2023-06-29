@@ -11,6 +11,8 @@ interface VideoContextProps {
 interface VideoProps {
   videos: Array<IVideo[]>;
   videoCategories: Array<string>;
+  selectedCategory: string;
+  setSelectedCategory: React.Dispatch<SetStateAction<string>>;
   page: number;
   setPage: React.Dispatch<SetStateAction<number>>;
   pageNumber: number;
@@ -19,6 +21,8 @@ interface VideoProps {
 const initialValue = {
   videos: [],
   videoCategories: [],
+  selectedCategory: '',
+  setSelectedCategory: () => {},
   page: 0,
   setPage: () => {},
   pageNumber: 0,
@@ -30,6 +34,9 @@ export const VideosProvider = ({ children }: VideoContextProps) => {
   const [videos, setVideos] = useState<Array<IVideo[]>>(initialValue.videos);
   const [videoCategories, setVideoCategories] = useState<Array<string>>(
     initialValue.videoCategories,
+  );
+  const [selectedCategory, setSelectedCategory] = useState(
+    initialValue.selectedCategory,
   );
   const [page, setPage] = useState(initialValue.page);
   const [pageNumber, setPageNumber] = useState(initialValue.pageNumber);
@@ -58,6 +65,34 @@ export const VideosProvider = ({ children }: VideoContextProps) => {
       itemsPerPage = 3;
     }
 
+    let paginatedArray;
+
+    if (selectedCategory.length > 0) {
+      const filterVideosByCategory = db.filter(
+        (video) => video.category === selectedCategory,
+      );
+
+      paginatedArray = paginateArray(filterVideosByCategory, itemsPerPage);
+    } else {
+      paginatedArray = paginateArray(db, itemsPerPage);
+    }
+
+    setVideos(paginatedArray);
+    setPageNumber(paginatedArray.length);
+  }, [selectedCategory]);
+
+  useEffect(() => {
+    const screenSize = getScreenSize();
+    let itemsPerPage;
+
+    if (screenSize.width > 1024) {
+      itemsPerPage = 9;
+    } else if (screenSize.width > 1024) {
+      itemsPerPage = 6;
+    } else {
+      itemsPerPage = 3;
+    }
+
     const paginatedArray = paginateArray(db, itemsPerPage);
 
     setVideos(paginatedArray);
@@ -67,7 +102,15 @@ export const VideosProvider = ({ children }: VideoContextProps) => {
 
   return (
     <VideosContext.Provider
-      value={{ videos, videoCategories, page, setPage, pageNumber }}
+      value={{
+        videos,
+        videoCategories,
+        selectedCategory,
+        setSelectedCategory,
+        page,
+        setPage,
+        pageNumber,
+      }}
     >
       {children}
     </VideosContext.Provider>

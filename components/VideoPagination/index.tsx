@@ -10,6 +10,16 @@ import {
 const VideoPagination = () => {
   const { pageNumber, setPage } = useContext(VideosContext);
 
+  const generatePagesArray = (pageNumber: number) => {
+    const pages = [];
+
+    for (let i = 0; i < pageNumber; i++) {
+      pages.push(i);
+    }
+
+    return pages;
+  };
+
   const handleSelectPage = (pageNumber: number) => {
     setPage(pageNumber);
   };
@@ -19,7 +29,7 @@ const VideoPagination = () => {
       <StyledText>Página</StyledText>
       <StyledPaginationList>
         {pageNumber > 0 &&
-          [...Array(pageNumber).keys()].map((x) => (
+          generatePagesArray(pageNumber).map((x) => (
             <StyledPaginationListItem
               key={x + 1}
               value={x + 1}
