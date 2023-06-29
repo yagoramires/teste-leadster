@@ -71,8 +71,8 @@ export const VideosProvider = ({ children }: VideoContextProps) => {
       const filterVideosByCategory = db.filter(
         (video) => video.category === selectedCategory,
       );
-
       paginatedArray = paginateArray(filterVideosByCategory, itemsPerPage);
+      setPage(0);
     } else {
       paginatedArray = paginateArray(db, itemsPerPage);
     }
