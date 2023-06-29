@@ -24,6 +24,7 @@ const VideoCategories = ({ categories }: props) => {
         </StyledCategoriesListItem>
         {categories?.map((category) => (
           <StyledCategoriesListItem
+            key={category}
             selected={selectedCategory === category ? true : false}
             onClick={() => setSelectedCategory(category)}
           >
