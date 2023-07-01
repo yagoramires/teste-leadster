@@ -73,37 +73,3 @@ export const StyledCategoriesListItem = styled.li<ListItemProps>`
     padding: 0.5rem 1rem;
   }
 `;
-
-export const StyledOrderContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-
-  @media (min-width: 768px) {
-    gap: 1rem;
-    flex-direction: row;
-  }
-`;
-
-export const StyledOrderLabel = styled.label`
-  color: ${({ theme }) => theme.colors.dark};
-  font-weight: 700;
-`;
-export const StyledOrder = styled.select`
-  border: 1px solid ${({ theme }) => theme.colors.dark};
-  color: ${({ theme }) => theme.colors.dark};
-  outline: none;
-
-  font-weight: 700;
-  padding: 0.5rem 1rem;
-
-  border-radius: 0.5rem;
-  cursor: pointer;
-`;
-
-export const StyledOrderOption = styled.option`
-  color: ${({ theme }) => theme.colors.dark};
-  padding: 2rem;
-`;

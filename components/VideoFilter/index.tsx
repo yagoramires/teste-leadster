@@ -4,11 +4,8 @@ import {
   StyledFilterContainer,
   StyledCategoriesList,
   StyledCategoriesListItem,
-  StyledOrder,
-  StyledOrderContainer,
-  StyledOrderLabel,
-  StyledOrderOption,
 } from './styles';
+import Select from '../Select';
 
 interface props {
   categories: Array<string>;
@@ -47,12 +44,7 @@ const VideoCategories = ({ categories, reference }: props) => {
         ))}
       </StyledCategoriesList>
 
-      <StyledOrderContainer>
-        <StyledOrderLabel>Ordenar por</StyledOrderLabel>
-        <StyledOrder>
-          <StyledOrderOption>Data de Publicação</StyledOrderOption>
-        </StyledOrder>
-      </StyledOrderContainer>
+      <Select />
     </StyledFilterContainer>
   );
 };
