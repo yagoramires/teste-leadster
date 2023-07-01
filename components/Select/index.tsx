@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import {
   ArrowIcon,
   StyledSelectedOrder,
@@ -9,10 +9,19 @@ import {
   StyledOrderOptionsContainer,
   StyledSelectedOption,
 } from './styles';
+import { VideosContext } from '@/context/VideosContext';
 
 const Select = () => {
   const [selected, setSelected] = useState('Selecione');
   const [open, setOpen] = useState(false);
+
+  const { sortVideosBySelectedOrder } = useContext(VideosContext);
+
+  const handleSelectOrder = (type: string) => {
+    setSelected(type);
+    sortVideosBySelectedOrder(type);
+    setOpen(!open);
+  };
 
   const handleOpenModal = () => {
     setOpen(!open);
@@ -26,13 +35,13 @@ const Select = () => {
         <ArrowIcon />
 
         <StyledOrderOptionsContainer open={open}>
-          <StyledOrderOption onClick={() => setSelected('Selecione')}>
+          <StyledOrderOption onClick={() => handleSelectOrder('Selecione')}>
             Selecione
           </StyledOrderOption>
-          <StyledOrderOption onClick={() => setSelected('Mais recentes')}>
+          <StyledOrderOption onClick={() => handleSelectOrder('Mais recentes')}>
             Mais recentes
           </StyledOrderOption>
-          <StyledOrderOption onClick={() => setSelected('Mais antigos')}>
+          <StyledOrderOption onClick={() => handleSelectOrder('Mais antigos')}>
             Mais antigos
           </StyledOrderOption>
         </StyledOrderOptionsContainer>

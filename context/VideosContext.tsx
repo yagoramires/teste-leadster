@@ -7,7 +7,7 @@ import {
   useRef,
 } from 'react';
 import db from '@/db.json';
-import { IVideo } from '@/interfaces/IVideos';
+import { IDate, IVideo } from '@/interfaces/IVideos';
 import usePagination from '@/hooks/usePagination';
 
 interface VideoContextProps {
@@ -26,6 +26,7 @@ interface VideoProps {
   setSelectedVideo: React.Dispatch<SetStateAction<IVideo>>;
   openVideoModal: boolean;
   setOpenVideoModal: React.Dispatch<SetStateAction<boolean>>;
+  sortVideosBySelectedOrder: (type: string) => void;
   headerReference: React.RefObject<HTMLHeadingElement> | null;
 }
 
@@ -51,6 +52,7 @@ const initialValue = {
   openVideoModal: false,
   setOpenVideoModal: () => {},
   headerReference: null,
+  sortVideosBySelectedOrder: () => {},
 };
 
 export const VideosContext = createContext<VideoProps>(initialValue);
@@ -78,12 +80,58 @@ export const VideosProvider = ({ children }: VideoContextProps) => {
 
   const getVideoCategories = (arr: Array<IVideo>) => {
     const getCategories = arr.map((video) => video.category);
-
     const removeDuplicatedCategories = new Set(getCategories);
-
     const categories = Array.from(removeDuplicatedCategories);
-
     return categories;
+  };
+
+  const convertDate = (date: IDate) => {
+    const converted = new Date(date.year, date.month - 1, date.day);
+    return converted.getTime();
+  };
+
+  const sortVideosBySelectedOrder = (type: string) => {
+    let allVideosArr = [] as IVideo[];
+    videos.forEach(
+      (videoArr) => (allVideosArr = [...allVideosArr, ...videoArr]),
+    );
+
+    const screenSize = getScreenSize();
+    let itemsPerPage;
+
+    if (screenSize.width > 1024) {
+      itemsPerPage = 9;
+    } else if (screenSize.width > 768) {
+      itemsPerPage = 6;
+    } else {
+      itemsPerPage = 3;
+    }
+
+    if (type === 'Mais recentes') {
+      const sorted = allVideosArr.sort((a, b) => {
+        const convertedA = convertDate(a.createdAt);
+        const convertedB = convertDate(b.createdAt);
+        return convertedB - convertedA;
+      });
+
+      const paginatedArray = paginateArray(sorted, itemsPerPage);
+
+      setVideos(paginatedArray);
+      setPageNumber(paginatedArray.length);
+    } else if (type === 'Mais antigos') {
+      const sorted = allVideosArr.sort((a, b) => {
+        const convertedA = convertDate(a.createdAt);
+        const convertedB = convertDate(b.createdAt);
+        return convertedA - convertedB;
+      });
+
+      const paginatedArray = paginateArray(sorted, itemsPerPage);
+
+      setVideos(paginatedArray);
+      setPageNumber(paginatedArray.length);
+    } else {
+      return;
+    }
   };
 
   useEffect(() => {
@@ -148,6 +196,7 @@ export const VideosProvider = ({ children }: VideoContextProps) => {
         openVideoModal,
         setOpenVideoModal,
         headerReference,
+        sortVideosBySelectedOrder,
       }}
     >
       {children}

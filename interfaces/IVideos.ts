@@ -6,9 +6,10 @@ export interface IVideo {
   description: string;
   downloads: Array<string>;
   category: string;
-  createdAt: {
-    year: number;
-    month: number;
-    day: number;
-  };
+  createdAt: IDate;
+}
+export interface IDate {
+  year: number;
+  month: number;
+  day: number;
 }
