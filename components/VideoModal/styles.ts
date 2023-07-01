@@ -27,12 +27,16 @@ export const StyledModal = styled.dialog<ModalProps>`
 
 export const StyledVideoContainer = styled.div`
   width: 100%;
-  height: 90vh;
+  height: 85vh;
   max-width: 700px;
   background-color: ${({ theme }) => theme.colors.white};
 
   border-radius: 2rem;
   overflow: hidden;
+
+  @media (min-width: 768px) {
+    height: 90vh;
+  }
 `;
 
 export const StyledBorderTop = styled.div`
@@ -44,13 +48,21 @@ export const StyledCloseButtonContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
+
+  @media (min-width: 768px) {
+    padding: 1rem;
+  }
 `;
 export const StyledCloseButton = styled.button``;
 
 export const CloseIcon = styled(IoCloseOutline)`
-  font-size: 2rem;
+  font-size: 1.3rem;
   color: ${({ theme }) => theme.colors.gray200};
+
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 export const StyledTitleContainer = styled.div`
@@ -58,13 +70,22 @@ export const StyledTitleContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  margin: 0 auto 1.5rem;
+  padding: 0 1rem;
   max-width: 400px;
+  margin: 0 auto 0.5rem;
+
+  @media (min-width: 768px) {
+    margin: 0 auto 1.5rem;
+  }
 `;
 export const StyledTitle = styled.h2`
   text-align: justify;
   color: ${({ theme }) => theme.colors.dark};
-  font-size: 1.3rem;
+  font-size: 0.8rem;
+
+  @media (min-width: 768px) {
+    font-size: 1.3rem;
+  }
 `;
 export const StyledTitleSpan = styled.span`
   margin-right: 0.5rem;
@@ -72,12 +93,20 @@ export const StyledTitleSpan = styled.span`
 `;
 export const StyledVideo = styled.iframe`
   width: 100%;
-  height: 340px;
+  height: 190px;
   border: none;
+
+  @media (min-width: 768px) {
+    height: 340px;
+  }
 `;
 
 export const StyledDescriptionContainer = styled.div`
-  padding: 1.5rem;
+  padding: 1rem;
+
+  @media (min-width: 768px) {
+    padding: 1.5rem;
+  }
 `;
 
 export const StyledSubtitle = styled.h3`
@@ -85,7 +114,11 @@ export const StyledSubtitle = styled.h3`
   font-weight: 700;
   color: ${({ theme }) => theme.colors.dark};
   border-bottom: 2px solid ${({ theme }) => theme.colors.gray};
-  font-size: 1rem;
+  font-size: 0.9rem;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 export const StyledDescription = styled.p`
@@ -93,6 +126,10 @@ export const StyledDescription = styled.p`
   font-weight: 600;
   color: ${({ theme }) => theme.colors.dark};
   margin-bottom: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   text-align: justify;
+
+  @media (min-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
