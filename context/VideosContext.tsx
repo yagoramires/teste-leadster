@@ -39,15 +39,13 @@ const initialValue = {
   pageNumber: 0,
   selectedVideo: {
     id: 1,
-    url: 'https://www.youtube.com/embed/t4z68gJX0B0',
-    title:
-      'Alcançando o sucesso através da expertise das agências de marketing',
-    thumb: '/assets/thumbnail.png',
-    description:
-      'As agências de marketing são especialistas em ajudar as empresas a alcançarem seus objetivos de crescimento por meio de estratégias de publicidade, branding e promoção. Com sua experiência e conhecimento, elas fornecem soluções personalizadas para atingir o público-alvo de forma eficaz.',
-    downloads: ['file.xls'],
-    category: 'Agências',
-    createdAt: { year: 2023, month: 6, day: 1 },
+    url: '',
+    title: '',
+    thumb: '',
+    description: '',
+    downloads: [''],
+    category: '',
+    createdAt: { year: 2023, month: 7, day: 1 },
   },
   setSelectedVideo: () => {},
   openVideoModal: false,

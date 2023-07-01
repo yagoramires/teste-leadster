@@ -32,6 +32,17 @@ const VideoModal = ({ isOpen, closeModal }: props) => {
   const handleCloseModal = () => {
     closeModal(false);
 
+    setVideo({
+      id: 1,
+      url: '',
+      title: '',
+      thumb: '',
+      description: '',
+      downloads: [''],
+      category: '',
+      createdAt: { year: 2023, month: 7, day: 1 },
+    });
+
     document.body.style.maxHeight = 'auto';
     document.body.style.overflow = 'auto';
   };
