@@ -1,4 +1,3 @@
-'use client';
 import Introduction from '@/components/Introduction/index';
 import Leads from '@/components/Leads';
 import Footer from '@/components/Footer';
