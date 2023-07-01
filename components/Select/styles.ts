@@ -42,7 +42,7 @@ export const StyledOrderOptionsContainer = styled.dialog`
   position: absolute;
   z-index: 10;
   left: 0;
-  bottom: -7rem;
+  top: 2.5rem;
 
   width: 100%;
 
