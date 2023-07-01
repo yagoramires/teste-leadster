@@ -1,14 +1,13 @@
-'use client';
-import StyledComponentsRegistry from './registry';
-import { GlobalStyle } from '@/styles/globals';
-
 import { Plus_Jakarta_Sans } from 'next/font/google';
 const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'] });
 
 import Header from '@/components/Header/index';
-import { ThemeProvider } from 'styled-components';
-import { defaultTheme } from '@/styles/theme';
-import { VideosProvider } from '@/context/VideosContext';
+import Providers from './Providers';
+
+export const metadata = {
+  title: 'Leadster',
+  description: 'Transformando visitantes em clientes',
+};
 
 export default function RootLayout({
   children,
@@ -18,15 +17,10 @@ export default function RootLayout({
   return (
     <html lang='pt-BR'>
       <body className={jakarta.className}>
-        <StyledComponentsRegistry>
-          <ThemeProvider theme={defaultTheme}>
-            <GlobalStyle />
-            <VideosProvider>
-              <Header />
-              {children}
-            </VideosProvider>
-          </ThemeProvider>
-        </StyledComponentsRegistry>
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   );

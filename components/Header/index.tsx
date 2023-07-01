@@ -1,3 +1,4 @@
+'use client';
 import { useContext } from 'react';
 import { VideosContext } from '@/context/VideosContext';
 import { StyleHeader, StyledLogo, StyledLink } from './styles';
