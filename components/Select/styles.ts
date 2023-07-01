@@ -1,5 +1,5 @@
 'use client';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { BiSolidDownArrow } from 'react-icons/bi';
 
 export const StyledOrderContainer = styled.div`
@@ -38,6 +38,15 @@ export const StyledSelectedOrder = styled.div`
   cursor: pointer;
 `;
 
+const opacityAnimation = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
 export const StyledOrderOptionsContainer = styled.dialog`
   position: absolute;
   z-index: 10;
@@ -49,6 +58,8 @@ export const StyledOrderOptionsContainer = styled.dialog`
   border: 1px solid ${({ theme }) => theme.colors.dark};
   border-radius: 0.5rem;
   background-color: ${({ theme }) => theme.colors.white};
+
+  animation: ${opacityAnimation} 0.5s ease;
 
   display: ${({ open }) => (open === true ? 'flex' : '')};
   flex-direction: column;
