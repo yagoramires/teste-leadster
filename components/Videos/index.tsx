@@ -17,7 +17,7 @@ const Videos = () => {
       <VideoFilter reference={videoListRef} categories={videoCategories} />
       <StyledCardList ref={videoListRef}>
         {videos[page]?.map((video: IVideo) => (
-          <VideoCard key={video.id} video={video} />
+          <VideoCard key={video.id} video={video} reference={videoListRef} />
         ))}
       </StyledCardList>
       <VideoPagination reference={videoListRef} />

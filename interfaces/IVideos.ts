@@ -1,6 +1,7 @@
 export interface IVideo {
   id: number;
   url: string;
+  title: string;
   thumb: string;
   description: string;
   downloads: Array<string>;
