@@ -27,20 +27,27 @@ export const StyledLogoContainer = styled.div`
   gap: 8px;
 `;
 export const StyledLogo = styled(Image)`
-  width: 280px;
+  width: 180px;
   height: auto;
+  @media (min-width: 768px) {
+    width: 280px;
+  }
 `;
+
 export const StyledLogoText = styled.p`
-  font-size: 16px;
+  font-size: 0.8rem;
   color: ${({ theme }) => theme.colors.dark};
   font-weight: 400;
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 export const StyledListContainer = styled.div`
   margin-top: 1rem;
   width: 100%;
   max-width: 1200px;
-  padding: 2rem;
+  padding: 0 2rem;
 
   display: flex;
   flex-direction: column;
@@ -49,12 +56,16 @@ export const StyledListContainer = styled.div`
 
   gap: 2rem;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
+    padding: 2rem;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
-    margin-bottom: 3rem;
     gap: 0;
+  }
+  @media (min-width: 1024px) {
+    margin-bottom: 3rem;
   }
 `;
 export const StyledList = styled.ul`
@@ -68,7 +79,15 @@ export const StyledList = styled.ul`
 
   gap: 1rem;
 
+  @media (min-width: 768px) {
+    width: 50%;
+  }
+
   @media (min-width: 1024px) {
+    width: 23%;
+  }
+
+  @media (min-width: 1200px) {
     gap: 1.5rem;
     width: 25%;
   }
@@ -76,12 +95,23 @@ export const StyledList = styled.ul`
 
 export const StyledListTitle = styled.h3`
   color: ${({ theme }) => theme.colors.gray400};
+  font-size: 1rem;
+
+  @media (min-width: 768px) {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
 
   @media (min-width: 1024px) {
     margin-bottom: 1.5rem;
   }
 `;
-export const StyledListItem = styled.li``;
+export const StyledListItem = styled.li`
+  font-size: 0.8rem;
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
+`;
 export const StyledListLink = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.gray200};

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-export const StyledBackground = styled.div`
+export const StyledBackground = styled.section`
   width: 100%;
   background: ${({ theme }) => theme.colors.light};
 `;
@@ -30,11 +30,11 @@ export const StyledDemoImage = styled(Image)`
   margin: 0 auto;
   width: 300px;
   height: auto;
+  @media (min-width: 768px) {
+    width: 450px;
+  }
   @media (min-width: 1024px) {
     width: 500px;
-  }
-  @media (min-width: 1440px) {
-    width: 640px;
   }
 `;
 
@@ -68,8 +68,11 @@ export const StyledTitle = styled.h3`
   justify-content: center;
   align-items: center;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     font-size: 2rem;
+  }
+
+  @media (min-width: 1024px) {
     align-items: flex-start;
   }
 `;
@@ -94,7 +97,7 @@ export const StyledText = styled.p`
   font-weight: 500;
   color: ${({ theme }) => theme.colors.dark};
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     font-size: 1rem;
   }
 `;
@@ -132,7 +135,6 @@ export const StyledStampImage = styled(Image)`
 export const StyledImage = styled(Image)``;
 
 export const StyledDetailsContainer = styled.div`
-  margin: 1.5rem auto 0;
   padding: 1.5rem 0;
   width: 100%;
 
@@ -142,9 +144,10 @@ export const StyledDetailsContainer = styled.div`
   align-items: center;
   gap: 0.5rem;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     flex-direction: row;
     font-size: 2rem;
+    justify-content: center;
   }
 
   & div {

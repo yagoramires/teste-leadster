@@ -5,7 +5,7 @@ interface ListItemProps {
   selected: boolean;
 }
 
-export const StyledCategoriesContainer = styled.div`
+export const StyledFilterContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem 0;
@@ -16,6 +16,11 @@ export const StyledCategoriesContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+
+  @media (min-width: 768px) {
+    gap: 1rem;
+    flex-direction: column-reverse;
+  }
 
   @media (min-width: 1024px) {
     gap: 1rem;
@@ -31,6 +36,7 @@ export const StyledCategoriesList = styled.ul`
   gap: 1rem;
   flex-wrap: wrap;
 `;
+
 export const StyledCategoriesListItem = styled.li<ListItemProps>`
   ${({ theme, selected }) =>
     selected
@@ -56,10 +62,17 @@ export const StyledCategoriesListItem = styled.li<ListItemProps>`
         `};
 
   text-transform: capitalize;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
 
   border-radius: 2rem;
   cursor: pointer;
+
+  font-size: 0.8rem;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
 `;
 
 export const StyledOrderContainer = styled.div`
@@ -69,11 +82,12 @@ export const StyledOrderContainer = styled.div`
   align-items: center;
   gap: 0.5rem;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     gap: 1rem;
     flex-direction: row;
   }
 `;
+
 export const StyledOrderLabel = styled.label`
   color: ${({ theme }) => theme.colors.dark};
   font-weight: 700;

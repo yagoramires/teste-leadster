@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 
-export const StyledContainer = styled.div`
+export const StyledContainer = styled.section`
   padding: 5rem 2rem;
 
   display: flex;

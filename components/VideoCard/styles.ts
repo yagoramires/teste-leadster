@@ -8,7 +8,7 @@ export const StyledCard = styled.li`
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   padding-bottom: 1rem;
 
-  max-width: 362px;
+  max-width: 344px;
   overflow: hidden;
   border-radius: 1rem;
   cursor: pointer;
@@ -24,6 +24,14 @@ export const StyledCard = styled.li`
     & p {
       color: ${({ theme }) => theme.colors.bluelink};
     }
+  }
+
+  @media (min-width: 768px) {
+    max-width: 290px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 362px;
   }
 `;
 
@@ -42,6 +50,16 @@ export const PlayIcon = styled(FaPlay)`
 
 export const StyledThumb = styled(Image)`
   margin-bottom: 1rem;
+  max-width: 344px;
+  height: auto;
+
+  @media (min-width: 768px) {
+    max-width: 290px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 362px;
+  }
 `;
 
 export const StyledCardDescription = styled.p`

@@ -1,7 +1,7 @@
 import { VideosContext } from '@/context/VideosContext';
 import { useContext } from 'react';
 import {
-  StyledCategoriesContainer,
+  StyledFilterContainer,
   StyledCategoriesList,
   StyledCategoriesListItem,
   StyledOrder,
@@ -24,7 +24,7 @@ const VideoCategories = ({ categories, reference }: props) => {
   };
 
   return (
-    <StyledCategoriesContainer>
+    <StyledFilterContainer>
       <StyledCategoriesList>
         <StyledCategoriesListItem
           selected={selectedCategory === 'Todas' ? true : false}
@@ -53,7 +53,7 @@ const VideoCategories = ({ categories, reference }: props) => {
           <StyledOrderOption>Data de Publicação</StyledOrderOption>
         </StyledOrder>
       </StyledOrderContainer>
-    </StyledCategoriesContainer>
+    </StyledFilterContainer>
   );
 };
 
