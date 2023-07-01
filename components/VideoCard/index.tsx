@@ -1,6 +1,6 @@
 'use client';
 import { IVideo } from '@/interfaces/IVideos';
-import React, { useState, useRef } from 'react';
+import React, { useContext } from 'react';
 import {
   StyledCard,
   StyledCardDescription,
@@ -8,21 +8,24 @@ import {
   StyledPreview,
   PlayIcon,
 } from './styles';
-import VideoModal from '@/components/VideoModal';
+
+import { VideosContext } from '@/context/VideosContext';
 
 interface cardProps {
   video: IVideo;
-  reference: React.RefObject<HTMLUListElement>;
 }
 
-const VideoCard = ({ video, reference }: cardProps) => {
-  const [openModal, setOpenModal] = useState(false);
-  // const videoCardRef = useRef<HTMLLIElement | null>(null);
+const VideoCard = ({ video }: cardProps) => {
+  const { setOpenVideoModal, setSelectedVideo, headerReference } =
+    useContext(VideosContext);
 
   const handleOpenModal = () => {
-    setOpenModal(true);
+    setOpenVideoModal(true);
+    setSelectedVideo(video);
+    headerReference?.current?.scrollIntoView({ behavior: 'smooth' });
 
-    reference.current?.scrollIntoView({ behavior: 'smooth' });
+    document.body.style.maxHeight = '100vh';
+    document.body.style.overflow = 'hidden';
   };
 
   return (
@@ -39,7 +42,6 @@ const VideoCard = ({ video, reference }: cardProps) => {
         />
         <StyledCardDescription>{video.title}</StyledCardDescription>
       </StyledCard>
-      <VideoModal isOpen={openModal} video={video} closeModal={setOpenModal} />
     </>
   );
 };

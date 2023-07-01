@@ -39,8 +39,16 @@ export const StyledPreview = styled.div`
   position: absolute;
   display: none;
   width: 100%;
-  height: 204px;
+  height: 195px;
   background: ${({ theme }) => `${theme.colors.bluelink}40`};
+
+  @media (min-width: 768px) {
+    height: 163px;
+  }
+
+  @media (min-width: 1200px) {
+    height: 204px;
+  }
 `;
 
 export const PlayIcon = styled(FaPlay)`

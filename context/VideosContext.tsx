@@ -1,5 +1,11 @@
 'use client';
-import { createContext, useState, useEffect, SetStateAction } from 'react';
+import {
+  createContext,
+  useState,
+  useEffect,
+  SetStateAction,
+  useRef,
+} from 'react';
 import db from '@/db.json';
 import { IVideo } from '@/interfaces/IVideos';
 import usePagination from '@/hooks/usePagination';
@@ -16,6 +22,11 @@ interface VideoProps {
   page: number;
   setPage: React.Dispatch<SetStateAction<number>>;
   pageNumber: number;
+  selectedVideo: IVideo;
+  setSelectedVideo: React.Dispatch<SetStateAction<IVideo>>;
+  openVideoModal: boolean;
+  setOpenVideoModal: React.Dispatch<SetStateAction<boolean>>;
+  headerReference: React.RefObject<HTMLHeadingElement> | null;
 }
 
 const initialValue = {
@@ -26,6 +37,22 @@ const initialValue = {
   page: 0,
   setPage: () => {},
   pageNumber: 0,
+  selectedVideo: {
+    id: 1,
+    url: 'https://www.youtube.com/embed/t4z68gJX0B0',
+    title:
+      'Alcançando o sucesso através da expertise das agências de marketing',
+    thumb: '/assets/thumbnail.png',
+    description:
+      'As agências de marketing são especialistas em ajudar as empresas a alcançarem seus objetivos de crescimento por meio de estratégias de publicidade, branding e promoção. Com sua experiência e conhecimento, elas fornecem soluções personalizadas para atingir o público-alvo de forma eficaz.',
+    downloads: ['file.xls'],
+    category: 'Agências',
+    createdAt: { year: 2023, month: 6, day: 1 },
+  },
+  setSelectedVideo: () => {},
+  openVideoModal: false,
+  setOpenVideoModal: () => {},
+  headerReference: null,
 };
 
 export const VideosContext = createContext<VideoProps>(initialValue);
@@ -35,11 +62,19 @@ export const VideosProvider = ({ children }: VideoContextProps) => {
   const [videoCategories, setVideoCategories] = useState<Array<string>>(
     initialValue.videoCategories,
   );
+  const [selectedVideo, setSelectedVideo] = useState(
+    initialValue.selectedVideo,
+  );
   const [selectedCategory, setSelectedCategory] = useState(
     initialValue.selectedCategory,
   );
   const [page, setPage] = useState(initialValue.page);
   const [pageNumber, setPageNumber] = useState(initialValue.pageNumber);
+  const [openVideoModal, setOpenVideoModal] = useState(
+    initialValue.openVideoModal,
+  );
+
+  const headerReference = useRef(initialValue.headerReference);
 
   const { paginateArray, getScreenSize } = usePagination();
 
@@ -110,6 +145,11 @@ export const VideosProvider = ({ children }: VideoContextProps) => {
         page,
         setPage,
         pageNumber,
+        selectedVideo,
+        setSelectedVideo,
+        openVideoModal,
+        setOpenVideoModal,
+        headerReference,
       }}
     >
       {children}

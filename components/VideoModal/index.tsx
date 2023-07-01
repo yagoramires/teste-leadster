@@ -1,4 +1,4 @@
-import React, { SetStateAction } from 'react';
+import React, { SetStateAction, useContext, useState, useEffect } from 'react';
 import {
   CloseIcon,
   StyledBorderTop,
@@ -15,17 +15,27 @@ import {
   StyledDescription,
 } from './styles';
 import { IVideo } from '@/interfaces/IVideos';
+import { VideosContext } from '@/context/VideosContext';
 
 interface props {
   isOpen: boolean;
-  video: IVideo;
   closeModal: React.Dispatch<SetStateAction<boolean>>;
 }
 
-const VideoModal = ({ isOpen, video, closeModal }: props) => {
+const VideoModal = ({ isOpen, closeModal }: props) => {
+  const { selectedVideo } = useContext(VideosContext);
+  const [video, setVideo] = useState<IVideo | null>(null);
+
   const handleCloseModal = () => {
     closeModal(false);
+
+    document.body.style.maxHeight = 'auto';
+    document.body.style.overflow = 'auto';
   };
+
+  useEffect(() => {
+    setVideo(selectedVideo);
+  }, [selectedVideo]);
 
   return (
     <StyledModal open={isOpen} active={isOpen.toString()}>
@@ -40,15 +50,15 @@ const VideoModal = ({ isOpen, video, closeModal }: props) => {
         <StyledTitleContainer>
           <StyledTitle>
             <StyledTitleSpan>Webinar:</StyledTitleSpan>
-            {video.title}
+            {video?.title}
           </StyledTitle>
         </StyledTitleContainer>
 
-        <StyledVideo src={video.url} width='100%' height='340px'></StyledVideo>
+        <StyledVideo src={video?.url} width='100%' height='340px'></StyledVideo>
 
         <StyledDescriptionContainer>
           <StyledSubtitle>Descrição</StyledSubtitle>
-          <StyledDescription>{video.description}</StyledDescription>
+          <StyledDescription>{video?.description}</StyledDescription>
 
           <StyledSubtitle>Downloads</StyledSubtitle>
         </StyledDescriptionContainer>

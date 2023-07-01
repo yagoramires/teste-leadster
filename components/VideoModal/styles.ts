@@ -10,7 +10,7 @@ export const StyledModal = styled.dialog<ModalProps>`
   position: absolute;
   width: 100%;
   z-index: 999;
-  top: 39.5rem;
+  top: 0;
 
   border: none;
   overflow: hidden;
