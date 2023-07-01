@@ -12,7 +12,7 @@ import {
 import { VideosContext } from '@/context/VideosContext';
 
 const Select = () => {
-  const [selected, setSelected] = useState('Selecione');
+  const [selected, setSelected] = useState('Mais antigos');
   const [open, setOpen] = useState(false);
 
   const { sortVideosBySelectedOrder } = useContext(VideosContext);
@@ -35,9 +35,6 @@ const Select = () => {
         <ArrowIcon />
 
         <StyledOrderOptionsContainer open={open}>
-          <StyledOrderOption onClick={() => handleSelectOrder('Selecione')}>
-            Selecione
-          </StyledOrderOption>
           <StyledOrderOption onClick={() => handleSelectOrder('Mais recentes')}>
             Mais recentes
           </StyledOrderOption>
