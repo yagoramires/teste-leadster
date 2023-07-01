@@ -19,7 +19,7 @@
     "title": "Transformando a comunicação com os clientes através dos chatbots inteligentes",
     "thumb": "/assets/thumbnail.png",
     "description": "Os chatbots estão revolucionando a forma como as empresas se comunicam com os clientes. Esses assistentes virtuais inteligentes estão presentes em websites e aplicativos, oferecendo respostas rápidas e personalizadas, melhorando a experiência do usuário e otimizando o atendimento ao cliente.",
-    "downloads": ["/downloads/Curriculo.pdf", "/downloads/Curriculo.docx"],
+    "downloads": [],
     "category": "Chatbot",
     "createdAt": { "year": 2023, "month": 6, "day": 9 }
   },
@@ -69,7 +69,7 @@
     "title": "Melhorando a visibilidade do seu site nos motores de busca",
     "thumb": "/assets/thumbnail.png",
     "description": "O SEO é um conjunto de técnicas utilizadas para melhorar a visibilidade e a classificação de um website nos resultados dos motores de busca. Ao otimizar o conteúdo e a estrutura do site, as empresas podem atrair mais tráfego orgânico e aumentar sua presença online.",
-    "downloads": ["/downloads/Curriculo.pdf", "/downloads/Curriculo.docx"],
+    "downloads": [],
     "category": "Mídia Paga",
     "createdAt": { "year": 2023, "month": 6, "day": 24 }
   },

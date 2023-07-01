@@ -147,10 +147,10 @@ export const StyledDownloadContainer = styled.div`
   align-items: center;
   gap: 0.5rem;
 
-  padding: 1rem;
+  padding: 0.5rem 0;
 
   @media (min-width: 768px) {
-    padding: 1.5rem;
+    padding: 1.5rem 0.5rem;
   }
 `;
 
@@ -166,11 +166,11 @@ export const StyledDownloadButton = styled.a<DownloadButtonProps>`
         `
       : fileType.includes('pdf')
       ? css`
-          background: ${theme.colors.bluedownload};
+          background: ${theme.colors.red};
         `
       : fileType.includes('doc')
       ? css`
-          background: ${theme.colors.red};
+          background: ${theme.colors.bluedownload};
         `
       : ''}
 
