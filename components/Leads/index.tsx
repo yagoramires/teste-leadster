@@ -33,7 +33,7 @@ const Leads = () => {
             Criação e ativação em <StyledBold>4 minutos.</StyledBold>
           </StyledText>
           <StyledButtonContainer>
-            <StyledLink href='/demo'>VER DEMONSTRAÇÃO</StyledLink>
+            <StyledLink href='/'>VER DEMONSTRAÇÃO</StyledLink>
             <StyledStampImage
               src='/assets/selo_RD.png'
               width={205}
