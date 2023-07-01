@@ -5,6 +5,10 @@ interface IDefaultTheme {
     primary: string;
     secondary: string;
     bluelink: string;
+    bluedownload: string;
+    green: string;
+    yellow: string;
+    red: string;
     light: string;
     dark: string;
     white: string;

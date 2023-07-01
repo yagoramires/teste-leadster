@@ -1,16 +1,22 @@
 'use client';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { IoCloseOutline } from 'react-icons/io5';
+import { FiDownloadCloud } from 'react-icons/fi';
 
 interface ModalProps {
-  active: string;
+  isActiveModal: boolean;
 }
 
-export const StyledModal = styled.dialog<ModalProps>`
+interface DownloadButtonProps {
+  fileType: string;
+}
+
+export const StyledModal = styled.div<ModalProps>`
   position: absolute;
   width: 100%;
   z-index: 999;
   top: 0;
+  left: 0;
 
   border: none;
   overflow: hidden;
@@ -18,7 +24,7 @@ export const StyledModal = styled.dialog<ModalProps>`
   min-height: 100vh;
   background: rgba(0, 0, 0, 0.5);
 
-  display: ${({ active }) => (active === 'true' ? 'flex' : 'none')};
+  display: ${({ isActiveModal }) => (isActiveModal ? 'flex' : 'none')};
   justify-content: center;
   align-items: center;
 
@@ -27,7 +33,7 @@ export const StyledModal = styled.dialog<ModalProps>`
 
 export const StyledVideoContainer = styled.div`
   width: 100%;
-  height: 85vh;
+  /* height: 85vh; */
   max-width: 700px;
   background-color: ${({ theme }) => theme.colors.white};
 
@@ -132,4 +138,63 @@ export const StyledDescription = styled.p`
   @media (min-width: 768px) {
     font-size: 0.9rem;
   }
+`;
+
+export const StyledDownloadContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 1rem;
+
+  @media (min-width: 768px) {
+    padding: 1.5rem;
+  }
+`;
+
+export const StyledDownloadButton = styled.a<DownloadButtonProps>`
+  ${({ theme, fileType }) =>
+    fileType.includes('ppt')
+      ? css`
+          background: ${theme.colors.yellow};
+        `
+      : fileType.includes('xls')
+      ? css`
+          background: ${theme.colors.green};
+        `
+      : fileType.includes('pdf')
+      ? css`
+          background: ${theme.colors.bluedownload};
+        `
+      : fileType.includes('doc')
+      ? css`
+          background: ${theme.colors.red};
+        `
+      : ''}
+
+  border-radius: 0.5rem;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  padding-right: 0.5rem;
+
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  text-decoration: none;
+
+  & div {
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.1);
+  }
+`;
+
+export const DownloadIcon = styled(FiDownloadCloud)`
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.6);
 `;

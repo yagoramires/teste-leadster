@@ -13,6 +13,9 @@ import {
   StyledDescriptionContainer,
   StyledSubtitle,
   StyledDescription,
+  StyledDownloadContainer,
+  StyledDownloadButton,
+  DownloadIcon,
 } from './styles';
 import { IVideo } from '@/interfaces/IVideos';
 import { VideosContext } from '@/context/VideosContext';
@@ -38,7 +41,7 @@ const VideoModal = ({ isOpen, closeModal }: props) => {
   }, [selectedVideo]);
 
   return (
-    <StyledModal open={isOpen} active={isOpen.toString()}>
+    <StyledModal isActiveModal={isOpen}>
       <StyledVideoContainer>
         <StyledBorderTop></StyledBorderTop>
         <StyledCloseButtonContainer>
@@ -60,7 +63,26 @@ const VideoModal = ({ isOpen, closeModal }: props) => {
           <StyledSubtitle>Descrição</StyledSubtitle>
           <StyledDescription>{video?.description}</StyledDescription>
 
-          <StyledSubtitle>Downloads</StyledSubtitle>
+          {video?.downloads && video?.downloads?.length > 0 && (
+            <>
+              <StyledSubtitle>Downloads</StyledSubtitle>
+              <StyledDownloadContainer>
+                {video?.downloads?.map((item, i) => (
+                  <StyledDownloadButton
+                    key={i}
+                    fileType={item}
+                    download
+                    href={item}
+                  >
+                    <div>
+                      <DownloadIcon />
+                    </div>
+                    {item.replace('/downloads/', '')}
+                  </StyledDownloadButton>
+                ))}
+              </StyledDownloadContainer>
+            </>
+          )}
         </StyledDescriptionContainer>
       </StyledVideoContainer>
     </StyledModal>

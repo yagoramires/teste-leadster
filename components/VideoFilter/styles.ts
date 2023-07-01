@@ -12,14 +12,13 @@ export const StyledFilterContainer = styled.div`
   border-bottom: 2px solid ${({ theme }) => theme.colors.gray};
 
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
 
   @media (min-width: 768px) {
     gap: 1rem;
-    flex-direction: column-reverse;
   }
 
   @media (min-width: 1024px) {
