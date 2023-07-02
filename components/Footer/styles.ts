@@ -126,6 +126,11 @@ export const StyledDivider = styled.div`
   width: 100%;
   background: ${({ theme }) => theme.colors.gray};
   height: 1px;
+  margin-top: 1rem;
+
+  @media (min-width: 768px) {
+    margin: 0;
+  }
 `;
 
 export const StyledCopyContainer = styled.div`
